@@ -1,0 +1,3 @@
+arr = [1, 2, 4]
+shout "Second element of array arr:"
+shout arr[2]
