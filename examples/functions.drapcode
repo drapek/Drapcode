@@ -1,0 +1,12 @@
+func say_smth smth:
+    shout "global x:"
+    shout x  # print global
+    x = 1
+    shout "local x:"
+    shout x
+    shout "your smth:"
+    shout smth
+endfunc
+
+x = 2
+say_smth "Example string"

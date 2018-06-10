@@ -1,0 +1,10 @@
+var = 5
+
+if var == 5:
+    shout var
+endif
+
+while var > 3:
+    shout var
+    var = var - 1
+endwhile
