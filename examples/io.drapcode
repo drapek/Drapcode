@@ -1,4 +1,0 @@
-shout "Hi, please give me your name"
-gimme name
-shout "So, welcome"
-shout name
