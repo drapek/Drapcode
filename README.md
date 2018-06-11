@@ -8,14 +8,14 @@ This is compiler implementation of own language called Drapcode. To get used to 
 * there can't be blank lines between statements
 
 # Features
-[/] IO operations
-[x] int and real numbers
-[x] strings
-[x] math operations
-[x] if statements
-[x] while loop
-[x] functions with scope variable
-[x] arrays
+- [x] IO operations
+- [x] int and real numbers
+- [ ] strings
+- [ ] math operations
+- [ ] if statements
+- [ ] while loop
+- [ ] functions with scope variable
+- [ ] arrays
 
 # How to use
 ```bash
