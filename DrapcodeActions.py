@@ -15,16 +15,30 @@ class DrapcodeActions(DrapcodeListener):
 
     # Exit a parse tree produced by DrapcodeParser#print.
     def exitPrint(self, ctx: DrapcodeParser.PrintContext):
-        self.llvm_gen.print(self.value)
+        if hasattr(ctx, 'var'):
+            self.llvm_gen.print(ctx.var().ID())
 
     # Exit a parse tree produced by DrapcodeParser#assign.
     def exitAssign(self, ctx: DrapcodeParser.AssignContext):
-        self.global_variables[ctx.ID] = ctx.getText()[:-1]
+        # TODO recognize and save proper type into global_variables
+        value = ctx.var_def().getText()
+        self.__declare_variable_if_not_exists(ctx.ID())
+        self.llvm_gen.assign(ctx.ID(), value)  # TODO this is probably sufficient only for INT
+        self.global_variables[ctx.ID()] = value
+
+    # Exit a parse tree produced by DrapcodeParser#read.
+    def exitRead(self, ctx: DrapcodeParser.ReadContext):
+        self.__declare_variable_if_not_exists(ctx.ID())
+        self.llvm_gen.scanf(ctx.ID())
 
     # Exit a parse tree produced by DrapcodeParser#var.
-    def exitVar(self, ctx: DrapcodeParser.VarContext):
-        if ctx.ID:
-            self.value = self.global_variables[ctx.ID]
-        else:
-            if ctx.getText():
-                self.value = ctx.getText()[:-1]
+    # def exitVar(self, ctx: DrapcodeParser.VarContext):
+    #     if ctx.ID:
+    #         self.value = self.global_variables[ctx.ID]
+    #     else:
+    #         if ctx.getText():
+    #             self.value = ctx.getText()[:-1]
+
+    def __declare_variable_if_not_exists(self, variable_name):
+        if variable_name not in self.global_variables:
+            self.llvm_gen.declare(variable_name)
