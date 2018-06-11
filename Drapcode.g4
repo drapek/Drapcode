@@ -3,9 +3,9 @@ grammar Drapcode;
 
 // Some fragments are commented because it will be develop it the near future but now it could obfuscate the actual problem
 // Digits
-NUMBER: INTEGER
- | FLOAT_NUMBER
- ;
+//NUMBER: INTEGER
+// | FLOAT_NUMBER
+// ;
 
 fragment DIGIT : [0-9];
 
@@ -30,13 +30,11 @@ fragment FRACTION
 //CLOSE_BRACK : ']';
 
 
-//MATH_OPERAND: (STAR | ADD | MINUS | DIV);
-
-//// Operations
-//STAR : '*';
-//ADD : '+';
-//MINUS : '-';
-//DIV : '/';
+// Operations
+MULT : '*';
+DIV : '/';
+ADD : '+';
+MINUS : '-';
 
 // Global
 EQ : '=';
@@ -71,17 +69,42 @@ prog: ( stmt? NEWLINE )* ;
 
 stmt: /*while_cond #while
      | if_cond #if */
-      ID EQ var_def #assign
-     | PRINT var #print
+     ID EQ var_def #assign
+     | PRINT ID #print
      | READ ID #read;
     /* | ID #func_call; */
 
 //block: ( stmt? NEWLINE )*;
 
-var_def: STRING | NUMBER /*| MATH_OPERATHION | array*/;
-var: ID | var_def /*| ARRAY_APPEAL*/;
+var_def: expr0 /*| NUMBER | STRING | array*/;
+
+expr0: expr1 #single0
+       | expr1 ADD expr1 #add
+       ;
+
+expr1: expr2 #single1
+       | expr2 MINUS expr2 #sub
+       ;
+
+expr2: expr3 #single2
+       | expr3 MULT expr3 #mult
+       ;
+
+expr3: expr4 #single3
+       | expr4 DIV expr4 #div
+       ;
+
+expr4:
+       INTEGER #int
+       | FLOAT_NUMBER #float
+       | ID #expr_id
+       | '(' expr0 ')' #par
+       ;
+
+
+
 //VAR_NUMERIC: ID | NUMBER;
-//
+
 //MATH_OPERATHION: VAR_NUMERIC (MATH_OPERAND VAR_NUMERIC)*;
 //
 //array: OPEN_BRACK (VAR_NUMERIC COMMA)+ CLOSE_BRACK; // eg. [1.2, 2.0, 2, 5]

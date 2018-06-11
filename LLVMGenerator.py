@@ -4,6 +4,9 @@ class LLVMGenerator:
     reg_iter = 1
     str_decl_iter = 1
 
+    #################
+    # IO operations #
+    #################
     def print(self, var_id, var_type):
         var_type = self.__translate_type_to_llvm(var_type)
 
@@ -50,6 +53,52 @@ class LLVMGenerator:
 
         self.main_text += f"store {var_type} {value}, {var_type}* %{var_id}\n"
 
+    def load_int(self, var_id):
+        self.main_text += f"%{self.reg_iter} = load i32, i32* %{var_id}\n"
+        self.reg_iter += 1
+
+    def load_double(self, var_id):
+        self.main_text += f"%{self.reg_iter} = load double, double* %{var_id}\n"
+        self.reg_iter += 1
+
+    ####################
+    # Math operations #
+    ###################
+    def add_int(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = add i32 {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def add_double(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = fadd double {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def sub_int(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = sub i32 {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def sub_double(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = fsub double {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def mult_int(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = mul i32 {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def mult_double(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = fmul double {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def div_int(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = sdiv i32 {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    def div_double(self, val1, val2):
+        self.main_text += f"%{self.reg_iter} = fdiv double {val1}, {val2}\n"
+        self.reg_iter += 1
+
+    #####################
+    # Summary generator #
+    #####################
     def generate(self):
         text = "declare i32 @printf(i8*, ...)\n"
         text += "declare i32 @__isoc99_scanf(i8*, ...)\n"

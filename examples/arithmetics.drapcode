@@ -5,7 +5,6 @@ zb = x - y
 zc = x / y
 zd = x * y
 
-shout "Results of z operations:"
 shout za
 shout zb
 shout zc
