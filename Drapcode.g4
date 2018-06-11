@@ -5,16 +5,16 @@ grammar Drapcode;
       opened = 0
 }
 
-prog: function | block;
+prog: ((stmt | function)? NEWLINE )*;
 
-block: ( stmt? NEWLINE )*;
-
-stmt:  while_cond #while
+stmt: while_cond #while
      | if_cond #if
      | PRINT var #print
      | ID EQ var_def #assign
-     | READ ID #read;
+     | READ ID #read
+     | ID #func_call;
 
+block: ( stmt? NEWLINE )*;
 
 var_def: STRING | NUMBER | MATH_OPERATHION | array;
 var: ID | var_def | ARRAY_APPEAL;
