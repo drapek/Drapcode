@@ -46,9 +46,9 @@ IF: 'if';
 IF_END: 'endif';
 PRINT: 'shout'; // prints the info to stdout
 READ: 'gimme';  // takes the output from the user
-//FUNC: 'func';
-//FUNC_END: 'endfunc';
-//COMMA: ',';
+FUNC: 'func';
+FUNC_END: 'endfunc';
+COMMA: ',';
 
 // Conditions
 EQUALS: '==';
@@ -65,21 +65,21 @@ NEWLINE: ('\r\n' | '\n' | '\r');
 WS : [ \t\r\n]+ -> skip; // skip spaces, tabs, newlines
 COMMENT : '#' ~[\r\n\f]* -> skip; // truncate the comments
 
-//prog: ((stmt | function)? NEWLINE )*;
 prog: block;
 
 stmt:  while_cond #while
      |  if_cond #if
      | ID EQ var_def #assign
      | PRINT ID #print
-     | READ ID #read;
-    /* | ID #func_call; */
+     | READ ID #read
+     | ID '()' #funccall;
 
 while_cond: WHILE condition COLON blockwhile WHILE_END;
 if_cond: IF condition COLON blockif IF_END;
 blockwhile: block;
 blockif: block;
-block: (stmt? NEWLINE )*;
+blockfunc: block;
+block: ((stmt | function)? NEWLINE )*;
 
 var_def: expr0 /*| NUMBER | STRING | array*/;
 
@@ -116,8 +116,9 @@ condition:   var_num EQUALS var_num #cond_eq
            | var_num DIFFERENT var_num #cond_diff // eg. 2.0 != var_a
            ;
 
+function: FUNC func_header blockfunc FUNC_END;
+func_header: ID COLON #f_head;
+//params: (var_num (COMMA var_num)*)?;
+
 //array: OPEN_BRACK (VAR_NUMERIC COMMA)+ CLOSE_BRACK; // eg. [1.2, 2.0, 2, 5]
 //ARRAY_APPEAL: ID OPEN_BRACK INTEGER CLOSE_BRACK;  // eg. arr[1]
-//function: FUNC ID params COLON block FUNC_END;
-//params: (var (COMMA var)*)?;
-

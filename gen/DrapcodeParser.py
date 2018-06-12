@@ -7,52 +7,61 @@ import sys
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\35")
-        buf.write("\u008a\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!")
+        buf.write("\u009d\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
-        buf.write("\t\16\4\17\t\17\4\20\t\20\3\2\3\2\3\3\3\3\3\3\3\3\3\3")
-        buf.write("\3\3\3\3\3\3\3\3\5\3,\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\5")
-        buf.write("\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\7\3\7\3\b\5\b?\n\b\3\b")
-        buf.write("\7\bB\n\b\f\b\16\bE\13\b\3\t\3\t\3\n\3\n\3\n\3\n\3\n\5")
-        buf.write("\nN\n\n\3\13\3\13\3\13\3\13\3\13\5\13U\n\13\3\f\3\f\3")
-        buf.write("\f\3\f\3\f\5\f\\\n\f\3\r\3\r\3\r\3\r\3\r\5\rc\n\r\3\16")
-        buf.write("\3\16\3\16\3\16\3\16\3\16\3\16\5\16l\n\16\3\17\3\17\3")
-        buf.write("\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20")
-        buf.write("\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20")
-        buf.write("\3\20\3\20\5\20\u0088\n\20\3\20\2\2\21\2\4\6\b\n\f\16")
-        buf.write("\20\22\24\26\30\32\34\36\2\3\4\2\5\5\31\31\2\u008c\2 ")
-        buf.write("\3\2\2\2\4+\3\2\2\2\6-\3\2\2\2\b\63\3\2\2\2\n9\3\2\2\2")
-        buf.write("\f;\3\2\2\2\16C\3\2\2\2\20F\3\2\2\2\22M\3\2\2\2\24T\3")
-        buf.write("\2\2\2\26[\3\2\2\2\30b\3\2\2\2\32k\3\2\2\2\34m\3\2\2\2")
-        buf.write("\36\u0087\3\2\2\2 !\5\16\b\2!\3\3\2\2\2\",\5\6\4\2#,\5")
-        buf.write("\b\5\2$%\7\31\2\2%&\7\13\2\2&,\5\20\t\2\'(\7\21\2\2(,")
-        buf.write("\7\31\2\2)*\7\22\2\2*,\7\31\2\2+\"\3\2\2\2+#\3\2\2\2+")
-        buf.write("$\3\2\2\2+\'\3\2\2\2+)\3\2\2\2,\5\3\2\2\2-.\7\r\2\2./")
-        buf.write("\5\36\20\2/\60\7\f\2\2\60\61\5\n\6\2\61\62\7\16\2\2\62")
-        buf.write("\7\3\2\2\2\63\64\7\17\2\2\64\65\5\36\20\2\65\66\7\f\2")
-        buf.write("\2\66\67\5\f\7\2\678\7\20\2\28\t\3\2\2\29:\5\16\b\2:\13")
-        buf.write("\3\2\2\2;<\5\16\b\2<\r\3\2\2\2=?\5\4\3\2>=\3\2\2\2>?\3")
-        buf.write("\2\2\2?@\3\2\2\2@B\7\33\2\2A>\3\2\2\2BE\3\2\2\2CA\3\2")
-        buf.write("\2\2CD\3\2\2\2D\17\3\2\2\2EC\3\2\2\2FG\5\22\n\2G\21\3")
-        buf.write("\2\2\2HN\5\24\13\2IJ\5\24\13\2JK\7\t\2\2KL\5\24\13\2L")
-        buf.write("N\3\2\2\2MH\3\2\2\2MI\3\2\2\2N\23\3\2\2\2OU\5\26\f\2P")
-        buf.write("Q\5\26\f\2QR\7\n\2\2RS\5\26\f\2SU\3\2\2\2TO\3\2\2\2TP")
-        buf.write("\3\2\2\2U\25\3\2\2\2V\\\5\30\r\2WX\5\30\r\2XY\7\7\2\2")
-        buf.write("YZ\5\30\r\2Z\\\3\2\2\2[V\3\2\2\2[W\3\2\2\2\\\27\3\2\2")
-        buf.write("\2]c\5\32\16\2^_\5\32\16\2_`\7\b\2\2`a\5\32\16\2ac\3\2")
-        buf.write("\2\2b]\3\2\2\2b^\3\2\2\2c\31\3\2\2\2dl\7\5\2\2el\7\6\2")
-        buf.write("\2fl\7\31\2\2gh\7\3\2\2hi\5\22\n\2ij\7\4\2\2jl\3\2\2\2")
-        buf.write("kd\3\2\2\2ke\3\2\2\2kf\3\2\2\2kg\3\2\2\2l\33\3\2\2\2m")
-        buf.write("n\t\2\2\2n\35\3\2\2\2op\5\34\17\2pq\7\23\2\2qr\5\34\17")
-        buf.write("\2r\u0088\3\2\2\2st\5\34\17\2tu\7\24\2\2uv\5\34\17\2v")
-        buf.write("\u0088\3\2\2\2wx\5\34\17\2xy\7\25\2\2yz\5\34\17\2z\u0088")
-        buf.write("\3\2\2\2{|\5\34\17\2|}\7\26\2\2}~\5\34\17\2~\u0088\3\2")
-        buf.write("\2\2\177\u0080\5\34\17\2\u0080\u0081\7\27\2\2\u0081\u0082")
-        buf.write("\5\34\17\2\u0082\u0088\3\2\2\2\u0083\u0084\5\34\17\2\u0084")
-        buf.write("\u0085\7\30\2\2\u0085\u0086\5\34\17\2\u0086\u0088\3\2")
-        buf.write("\2\2\u0087o\3\2\2\2\u0087s\3\2\2\2\u0087w\3\2\2\2\u0087")
-        buf.write("{\3\2\2\2\u0087\177\3\2\2\2\u0087\u0083\3\2\2\2\u0088")
-        buf.write("\37\3\2\2\2\13+>CMT[bk\u0087")
+        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
+        buf.write("\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5")
+        buf.write("\3\64\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5")
+        buf.write("\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\5\tJ\n\t\3\t\7\t")
+        buf.write("M\n\t\f\t\16\tP\13\t\3\n\3\n\3\13\3\13\3\13\3\13\3\13")
+        buf.write("\5\13Y\n\13\3\f\3\f\3\f\3\f\3\f\5\f`\n\f\3\r\3\r\3\r\3")
+        buf.write("\r\3\r\5\rg\n\r\3\16\3\16\3\16\3\16\3\16\5\16n\n\16\3")
+        buf.write("\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17w\n\17\3\20\3\20")
+        buf.write("\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21")
+        buf.write("\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21")
+        buf.write("\3\21\3\21\5\21\u0093\n\21\3\22\3\22\3\22\3\22\3\22\3")
+        buf.write("\23\3\23\3\23\3\23\2\2\24\2\4\6\b\n\f\16\20\22\24\26\30")
+        buf.write("\32\34\36 \"$\2\3\4\2\6\6\35\35\2\u009e\2&\3\2\2\2\4\63")
+        buf.write("\3\2\2\2\6\65\3\2\2\2\b;\3\2\2\2\nA\3\2\2\2\fC\3\2\2\2")
+        buf.write("\16E\3\2\2\2\20N\3\2\2\2\22Q\3\2\2\2\24X\3\2\2\2\26_\3")
+        buf.write("\2\2\2\30f\3\2\2\2\32m\3\2\2\2\34v\3\2\2\2\36x\3\2\2\2")
+        buf.write(" \u0092\3\2\2\2\"\u0094\3\2\2\2$\u0099\3\2\2\2&\'\5\20")
+        buf.write("\t\2\'\3\3\2\2\2(\64\5\6\4\2)\64\5\b\5\2*+\7\35\2\2+,")
+        buf.write("\7\f\2\2,\64\5\22\n\2-.\7\22\2\2.\64\7\35\2\2/\60\7\23")
+        buf.write("\2\2\60\64\7\35\2\2\61\62\7\35\2\2\62\64\7\3\2\2\63(\3")
+        buf.write("\2\2\2\63)\3\2\2\2\63*\3\2\2\2\63-\3\2\2\2\63/\3\2\2\2")
+        buf.write("\63\61\3\2\2\2\64\5\3\2\2\2\65\66\7\16\2\2\66\67\5 \21")
+        buf.write("\2\678\7\r\2\289\5\n\6\29:\7\17\2\2:\7\3\2\2\2;<\7\20")
+        buf.write("\2\2<=\5 \21\2=>\7\r\2\2>?\5\f\7\2?@\7\21\2\2@\t\3\2\2")
+        buf.write("\2AB\5\20\t\2B\13\3\2\2\2CD\5\20\t\2D\r\3\2\2\2EF\5\20")
+        buf.write("\t\2F\17\3\2\2\2GJ\5\4\3\2HJ\5\"\22\2IG\3\2\2\2IH\3\2")
+        buf.write("\2\2IJ\3\2\2\2JK\3\2\2\2KM\7\37\2\2LI\3\2\2\2MP\3\2\2")
+        buf.write("\2NL\3\2\2\2NO\3\2\2\2O\21\3\2\2\2PN\3\2\2\2QR\5\24\13")
+        buf.write("\2R\23\3\2\2\2SY\5\26\f\2TU\5\26\f\2UV\7\n\2\2VW\5\26")
+        buf.write("\f\2WY\3\2\2\2XS\3\2\2\2XT\3\2\2\2Y\25\3\2\2\2Z`\5\30")
+        buf.write("\r\2[\\\5\30\r\2\\]\7\13\2\2]^\5\30\r\2^`\3\2\2\2_Z\3")
+        buf.write("\2\2\2_[\3\2\2\2`\27\3\2\2\2ag\5\32\16\2bc\5\32\16\2c")
+        buf.write("d\7\b\2\2de\5\32\16\2eg\3\2\2\2fa\3\2\2\2fb\3\2\2\2g\31")
+        buf.write("\3\2\2\2hn\5\34\17\2ij\5\34\17\2jk\7\t\2\2kl\5\34\17\2")
+        buf.write("ln\3\2\2\2mh\3\2\2\2mi\3\2\2\2n\33\3\2\2\2ow\7\6\2\2p")
+        buf.write("w\7\7\2\2qw\7\35\2\2rs\7\4\2\2st\5\24\13\2tu\7\5\2\2u")
+        buf.write("w\3\2\2\2vo\3\2\2\2vp\3\2\2\2vq\3\2\2\2vr\3\2\2\2w\35")
+        buf.write("\3\2\2\2xy\t\2\2\2y\37\3\2\2\2z{\5\36\20\2{|\7\27\2\2")
+        buf.write("|}\5\36\20\2}\u0093\3\2\2\2~\177\5\36\20\2\177\u0080\7")
+        buf.write("\30\2\2\u0080\u0081\5\36\20\2\u0081\u0093\3\2\2\2\u0082")
+        buf.write("\u0083\5\36\20\2\u0083\u0084\7\31\2\2\u0084\u0085\5\36")
+        buf.write("\20\2\u0085\u0093\3\2\2\2\u0086\u0087\5\36\20\2\u0087")
+        buf.write("\u0088\7\32\2\2\u0088\u0089\5\36\20\2\u0089\u0093\3\2")
+        buf.write("\2\2\u008a\u008b\5\36\20\2\u008b\u008c\7\33\2\2\u008c")
+        buf.write("\u008d\5\36\20\2\u008d\u0093\3\2\2\2\u008e\u008f\5\36")
+        buf.write("\20\2\u008f\u0090\7\34\2\2\u0090\u0091\5\36\20\2\u0091")
+        buf.write("\u0093\3\2\2\2\u0092z\3\2\2\2\u0092~\3\2\2\2\u0092\u0082")
+        buf.write("\3\2\2\2\u0092\u0086\3\2\2\2\u0092\u008a\3\2\2\2\u0092")
+        buf.write("\u008e\3\2\2\2\u0093!\3\2\2\2\u0094\u0095\7\24\2\2\u0095")
+        buf.write("\u0096\5$\23\2\u0096\u0097\5\16\b\2\u0097\u0098\7\25\2")
+        buf.write("\2\u0098#\3\2\2\2\u0099\u009a\7\35\2\2\u009a\u009b\7\r")
+        buf.write("\2\2\u009b%\3\2\2\2\13\63INX_fmv\u0092")
         return buf.getvalue()
 
 
@@ -66,17 +75,18 @@ class DrapcodeParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'('", "')'", "<INVALID>", "<INVALID>", 
+    literalNames = [ "<INVALID>", "'()'", "'('", "')'", "<INVALID>", "<INVALID>", 
                      "'*'", "'/'", "'+'", "'-'", "'='", "':'", "'while'", 
                      "'endwhile'", "'if'", "'endif'", "'shout'", "'gimme'", 
-                     "'=='", "'>'", "'>='", "'<'", "'<='", "'!='" ]
+                     "'func'", "'endfunc'", "','", "'=='", "'>'", "'>='", 
+                     "'<'", "'<='", "'!='" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "INTEGER", 
-                      "FLOAT_NUMBER", "MULT", "DIV", "ADD", "MINUS", "EQ", 
-                      "COLON", "WHILE", "WHILE_END", "IF", "IF_END", "PRINT", 
-                      "READ", "EQUALS", "GREAT_THAN", "GREAT_EQ_THAN", "LESS_THAN", 
-                      "LESS_EQ_THAN", "DIFFERENT", "ID", "STRING", "NEWLINE", 
-                      "WS", "COMMENT" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "INTEGER", "FLOAT_NUMBER", "MULT", "DIV", "ADD", "MINUS", 
+                      "EQ", "COLON", "WHILE", "WHILE_END", "IF", "IF_END", 
+                      "PRINT", "READ", "FUNC", "FUNC_END", "COMMA", "EQUALS", 
+                      "GREAT_THAN", "GREAT_EQ_THAN", "LESS_THAN", "LESS_EQ_THAN", 
+                      "DIFFERENT", "ID", "STRING", "NEWLINE", "WS", "COMMENT" ]
 
     RULE_prog = 0
     RULE_stmt = 1
@@ -84,48 +94,56 @@ class DrapcodeParser ( Parser ):
     RULE_if_cond = 3
     RULE_blockwhile = 4
     RULE_blockif = 5
-    RULE_block = 6
-    RULE_var_def = 7
-    RULE_expr0 = 8
-    RULE_expr1 = 9
-    RULE_expr2 = 10
-    RULE_expr3 = 11
-    RULE_expr4 = 12
-    RULE_var_num = 13
-    RULE_condition = 14
+    RULE_blockfunc = 6
+    RULE_block = 7
+    RULE_var_def = 8
+    RULE_expr0 = 9
+    RULE_expr1 = 10
+    RULE_expr2 = 11
+    RULE_expr3 = 12
+    RULE_expr4 = 13
+    RULE_var_num = 14
+    RULE_condition = 15
+    RULE_function = 16
+    RULE_func_header = 17
 
     ruleNames =  [ "prog", "stmt", "while_cond", "if_cond", "blockwhile", 
-                   "blockif", "block", "var_def", "expr0", "expr1", "expr2", 
-                   "expr3", "expr4", "var_num", "condition" ]
+                   "blockif", "blockfunc", "block", "var_def", "expr0", 
+                   "expr1", "expr2", "expr3", "expr4", "var_num", "condition", 
+                   "function", "func_header" ]
 
     EOF = Token.EOF
     T__0=1
     T__1=2
-    INTEGER=3
-    FLOAT_NUMBER=4
-    MULT=5
-    DIV=6
-    ADD=7
-    MINUS=8
-    EQ=9
-    COLON=10
-    WHILE=11
-    WHILE_END=12
-    IF=13
-    IF_END=14
-    PRINT=15
-    READ=16
-    EQUALS=17
-    GREAT_THAN=18
-    GREAT_EQ_THAN=19
-    LESS_THAN=20
-    LESS_EQ_THAN=21
-    DIFFERENT=22
-    ID=23
-    STRING=24
-    NEWLINE=25
-    WS=26
-    COMMENT=27
+    T__2=3
+    INTEGER=4
+    FLOAT_NUMBER=5
+    MULT=6
+    DIV=7
+    ADD=8
+    MINUS=9
+    EQ=10
+    COLON=11
+    WHILE=12
+    WHILE_END=13
+    IF=14
+    IF_END=15
+    PRINT=16
+    READ=17
+    FUNC=18
+    FUNC_END=19
+    COMMA=20
+    EQUALS=21
+    GREAT_THAN=22
+    GREAT_EQ_THAN=23
+    LESS_THAN=24
+    LESS_EQ_THAN=25
+    DIFFERENT=26
+    ID=27
+    STRING=28
+    NEWLINE=29
+    WS=30
+    COMMENT=31
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -165,7 +183,7 @@ class DrapcodeParser ( Parser ):
         self.enterRule(localctx, 0, self.RULE_prog)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 30
+            self.state = 36
             self.block()
         except RecognitionException as re:
             localctx.exception = re
@@ -229,6 +247,24 @@ class DrapcodeParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitRead" ):
                 listener.exitRead(self)
+
+
+    class FunccallContext(StmtContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a DrapcodeParser.StmtContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(DrapcodeParser.ID, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunccall" ):
+                listener.enterFunccall(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunccall" ):
+                listener.exitFunccall(self)
 
 
     class WhileContext(StmtContext):
@@ -298,49 +334,61 @@ class DrapcodeParser ( Parser ):
         localctx = DrapcodeParser.StmtContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_stmt)
         try:
-            self.state = 41
+            self.state = 49
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [DrapcodeParser.WHILE]:
+            la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
+            if la_ == 1:
                 localctx = DrapcodeParser.WhileContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 32
+                self.state = 38
                 self.while_cond()
                 pass
-            elif token in [DrapcodeParser.IF]:
+
+            elif la_ == 2:
                 localctx = DrapcodeParser.IfContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 33
+                self.state = 39
                 self.if_cond()
                 pass
-            elif token in [DrapcodeParser.ID]:
+
+            elif la_ == 3:
                 localctx = DrapcodeParser.AssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 34
-                self.match(DrapcodeParser.ID)
-                self.state = 35
-                self.match(DrapcodeParser.EQ)
-                self.state = 36
-                self.var_def()
-                pass
-            elif token in [DrapcodeParser.PRINT]:
-                localctx = DrapcodeParser.PrintContext(self, localctx)
-                self.enterOuterAlt(localctx, 4)
-                self.state = 37
-                self.match(DrapcodeParser.PRINT)
-                self.state = 38
-                self.match(DrapcodeParser.ID)
-                pass
-            elif token in [DrapcodeParser.READ]:
-                localctx = DrapcodeParser.ReadContext(self, localctx)
-                self.enterOuterAlt(localctx, 5)
-                self.state = 39
-                self.match(DrapcodeParser.READ)
                 self.state = 40
                 self.match(DrapcodeParser.ID)
+                self.state = 41
+                self.match(DrapcodeParser.EQ)
+                self.state = 42
+                self.var_def()
                 pass
-            else:
-                raise NoViableAltException(self)
+
+            elif la_ == 4:
+                localctx = DrapcodeParser.PrintContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
+                self.state = 43
+                self.match(DrapcodeParser.PRINT)
+                self.state = 44
+                self.match(DrapcodeParser.ID)
+                pass
+
+            elif la_ == 5:
+                localctx = DrapcodeParser.ReadContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
+                self.state = 45
+                self.match(DrapcodeParser.READ)
+                self.state = 46
+                self.match(DrapcodeParser.ID)
+                pass
+
+            elif la_ == 6:
+                localctx = DrapcodeParser.FunccallContext(self, localctx)
+                self.enterOuterAlt(localctx, 6)
+                self.state = 47
+                self.match(DrapcodeParser.ID)
+                self.state = 48
+                self.match(DrapcodeParser.T__0)
+                pass
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -393,15 +441,15 @@ class DrapcodeParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_while_cond)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 43
+            self.state = 51
             self.match(DrapcodeParser.WHILE)
-            self.state = 44
+            self.state = 52
             self.condition()
-            self.state = 45
+            self.state = 53
             self.match(DrapcodeParser.COLON)
-            self.state = 46
+            self.state = 54
             self.blockwhile()
-            self.state = 47
+            self.state = 55
             self.match(DrapcodeParser.WHILE_END)
         except RecognitionException as re:
             localctx.exception = re
@@ -454,15 +502,15 @@ class DrapcodeParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_if_cond)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 49
+            self.state = 57
             self.match(DrapcodeParser.IF)
-            self.state = 50
+            self.state = 58
             self.condition()
-            self.state = 51
+            self.state = 59
             self.match(DrapcodeParser.COLON)
-            self.state = 52
+            self.state = 60
             self.blockif()
-            self.state = 53
+            self.state = 61
             self.match(DrapcodeParser.IF_END)
         except RecognitionException as re:
             localctx.exception = re
@@ -502,7 +550,7 @@ class DrapcodeParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_blockwhile)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 55
+            self.state = 63
             self.block()
         except RecognitionException as re:
             localctx.exception = re
@@ -542,7 +590,47 @@ class DrapcodeParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_blockif)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 57
+            self.state = 65
+            self.block()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class BlockfuncContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def block(self):
+            return self.getTypedRuleContext(DrapcodeParser.BlockContext,0)
+
+
+        def getRuleIndex(self):
+            return DrapcodeParser.RULE_blockfunc
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterBlockfunc" ):
+                listener.enterBlockfunc(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitBlockfunc" ):
+                listener.exitBlockfunc(self)
+
+
+
+
+    def blockfunc(self):
+
+        localctx = DrapcodeParser.BlockfuncContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_blockfunc)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 67
             self.block()
         except RecognitionException as re:
             localctx.exception = re
@@ -571,6 +659,13 @@ class DrapcodeParser ( Parser ):
                 return self.getTypedRuleContext(DrapcodeParser.StmtContext,i)
 
 
+        def function(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(DrapcodeParser.FunctionContext)
+            else:
+                return self.getTypedRuleContext(DrapcodeParser.FunctionContext,i)
+
+
         def getRuleIndex(self):
             return DrapcodeParser.RULE_block
 
@@ -588,25 +683,32 @@ class DrapcodeParser ( Parser ):
     def block(self):
 
         localctx = DrapcodeParser.BlockContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_block)
+        self.enterRule(localctx, 14, self.RULE_block)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 65
+            self.state = 76
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << DrapcodeParser.WHILE) | (1 << DrapcodeParser.IF) | (1 << DrapcodeParser.PRINT) | (1 << DrapcodeParser.READ) | (1 << DrapcodeParser.ID) | (1 << DrapcodeParser.NEWLINE))) != 0):
-                self.state = 60
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << DrapcodeParser.WHILE) | (1 << DrapcodeParser.IF) | (1 << DrapcodeParser.PRINT) | (1 << DrapcodeParser.READ) | (1 << DrapcodeParser.FUNC) | (1 << DrapcodeParser.ID) | (1 << DrapcodeParser.NEWLINE))) != 0):
+                self.state = 71
                 self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << DrapcodeParser.WHILE) | (1 << DrapcodeParser.IF) | (1 << DrapcodeParser.PRINT) | (1 << DrapcodeParser.READ) | (1 << DrapcodeParser.ID))) != 0):
-                    self.state = 59
+                token = self._input.LA(1)
+                if token in [DrapcodeParser.WHILE, DrapcodeParser.IF, DrapcodeParser.PRINT, DrapcodeParser.READ, DrapcodeParser.ID]:
+                    self.state = 69
                     self.stmt()
-
-
-                self.state = 62
+                    pass
+                elif token in [DrapcodeParser.FUNC]:
+                    self.state = 70
+                    self.function()
+                    pass
+                elif token in [DrapcodeParser.NEWLINE]:
+                    pass
+                else:
+                    pass
+                self.state = 73
                 self.match(DrapcodeParser.NEWLINE)
-                self.state = 67
+                self.state = 78
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -645,10 +747,10 @@ class DrapcodeParser ( Parser ):
     def var_def(self):
 
         localctx = DrapcodeParser.Var_defContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_var_def)
+        self.enterRule(localctx, 16, self.RULE_var_def)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
+            self.state = 79
             self.expr0()
         except RecognitionException as re:
             localctx.exception = re
@@ -721,26 +823,26 @@ class DrapcodeParser ( Parser ):
     def expr0(self):
 
         localctx = DrapcodeParser.Expr0Context(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_expr0)
+        self.enterRule(localctx, 18, self.RULE_expr0)
         try:
-            self.state = 75
+            self.state = 86
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
                 localctx = DrapcodeParser.Single0Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 70
+                self.state = 81
                 self.expr1()
                 pass
 
             elif la_ == 2:
                 localctx = DrapcodeParser.AddContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 71
+                self.state = 82
                 self.expr1()
-                self.state = 72
+                self.state = 83
                 self.match(DrapcodeParser.ADD)
-                self.state = 73
+                self.state = 84
                 self.expr1()
                 pass
 
@@ -816,26 +918,26 @@ class DrapcodeParser ( Parser ):
     def expr1(self):
 
         localctx = DrapcodeParser.Expr1Context(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_expr1)
+        self.enterRule(localctx, 20, self.RULE_expr1)
         try:
-            self.state = 82
+            self.state = 93
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
             if la_ == 1:
                 localctx = DrapcodeParser.Single1Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 77
+                self.state = 88
                 self.expr2()
                 pass
 
             elif la_ == 2:
                 localctx = DrapcodeParser.SubContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 78
+                self.state = 89
                 self.expr2()
-                self.state = 79
+                self.state = 90
                 self.match(DrapcodeParser.MINUS)
-                self.state = 80
+                self.state = 91
                 self.expr2()
                 pass
 
@@ -911,26 +1013,26 @@ class DrapcodeParser ( Parser ):
     def expr2(self):
 
         localctx = DrapcodeParser.Expr2Context(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_expr2)
+        self.enterRule(localctx, 22, self.RULE_expr2)
         try:
-            self.state = 89
+            self.state = 100
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
                 localctx = DrapcodeParser.Single2Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 84
+                self.state = 95
                 self.expr3()
                 pass
 
             elif la_ == 2:
                 localctx = DrapcodeParser.MultContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 85
+                self.state = 96
                 self.expr3()
-                self.state = 86
+                self.state = 97
                 self.match(DrapcodeParser.MULT)
-                self.state = 87
+                self.state = 98
                 self.expr3()
                 pass
 
@@ -1006,26 +1108,26 @@ class DrapcodeParser ( Parser ):
     def expr3(self):
 
         localctx = DrapcodeParser.Expr3Context(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_expr3)
+        self.enterRule(localctx, 24, self.RULE_expr3)
         try:
-            self.state = 96
+            self.state = 107
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
             if la_ == 1:
                 localctx = DrapcodeParser.Single3Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 91
+                self.state = 102
                 self.expr4()
                 pass
 
             elif la_ == 2:
                 localctx = DrapcodeParser.DivContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 92
+                self.state = 103
                 self.expr4()
-                self.state = 93
+                self.state = 104
                 self.match(DrapcodeParser.DIV)
-                self.state = 94
+                self.state = 105
                 self.expr4()
                 pass
 
@@ -1131,38 +1233,38 @@ class DrapcodeParser ( Parser ):
     def expr4(self):
 
         localctx = DrapcodeParser.Expr4Context(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_expr4)
+        self.enterRule(localctx, 26, self.RULE_expr4)
         try:
-            self.state = 105
+            self.state = 116
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [DrapcodeParser.INTEGER]:
                 localctx = DrapcodeParser.IntContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 98
+                self.state = 109
                 self.match(DrapcodeParser.INTEGER)
                 pass
             elif token in [DrapcodeParser.FLOAT_NUMBER]:
                 localctx = DrapcodeParser.FloatContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 99
+                self.state = 110
                 self.match(DrapcodeParser.FLOAT_NUMBER)
                 pass
             elif token in [DrapcodeParser.ID]:
                 localctx = DrapcodeParser.Expr_idContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 100
+                self.state = 111
                 self.match(DrapcodeParser.ID)
                 pass
-            elif token in [DrapcodeParser.T__0]:
+            elif token in [DrapcodeParser.T__1]:
                 localctx = DrapcodeParser.ParContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 101
-                self.match(DrapcodeParser.T__0)
-                self.state = 102
-                self.expr0()
-                self.state = 103
+                self.state = 112
                 self.match(DrapcodeParser.T__1)
+                self.state = 113
+                self.expr0()
+                self.state = 114
+                self.match(DrapcodeParser.T__2)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -1204,11 +1306,11 @@ class DrapcodeParser ( Parser ):
     def var_num(self):
 
         localctx = DrapcodeParser.Var_numContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_var_num)
+        self.enterRule(localctx, 28, self.RULE_var_num)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 107
+            self.state = 118
             _la = self._input.LA(1)
             if not(_la==DrapcodeParser.INTEGER or _la==DrapcodeParser.ID):
                 self._errHandler.recoverInline(self)
@@ -1387,78 +1489,190 @@ class DrapcodeParser ( Parser ):
     def condition(self):
 
         localctx = DrapcodeParser.ConditionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_condition)
+        self.enterRule(localctx, 30, self.RULE_condition)
         try:
-            self.state = 133
+            self.state = 144
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
             if la_ == 1:
                 localctx = DrapcodeParser.Cond_eqContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 109
+                self.state = 120
                 self.var_num()
-                self.state = 110
+                self.state = 121
                 self.match(DrapcodeParser.EQUALS)
-                self.state = 111
+                self.state = 122
                 self.var_num()
                 pass
 
             elif la_ == 2:
                 localctx = DrapcodeParser.Cond_gtContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 113
+                self.state = 124
                 self.var_num()
-                self.state = 114
+                self.state = 125
                 self.match(DrapcodeParser.GREAT_THAN)
-                self.state = 115
+                self.state = 126
                 self.var_num()
                 pass
 
             elif la_ == 3:
                 localctx = DrapcodeParser.Cond_gteContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
-                self.state = 117
+                self.state = 128
                 self.var_num()
-                self.state = 118
+                self.state = 129
                 self.match(DrapcodeParser.GREAT_EQ_THAN)
-                self.state = 119
+                self.state = 130
                 self.var_num()
                 pass
 
             elif la_ == 4:
                 localctx = DrapcodeParser.Cond_ltContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
-                self.state = 121
+                self.state = 132
                 self.var_num()
-                self.state = 122
+                self.state = 133
                 self.match(DrapcodeParser.LESS_THAN)
-                self.state = 123
+                self.state = 134
                 self.var_num()
                 pass
 
             elif la_ == 5:
                 localctx = DrapcodeParser.Cond_lteContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
-                self.state = 125
+                self.state = 136
                 self.var_num()
-                self.state = 126
+                self.state = 137
                 self.match(DrapcodeParser.LESS_EQ_THAN)
-                self.state = 127
+                self.state = 138
                 self.var_num()
                 pass
 
             elif la_ == 6:
                 localctx = DrapcodeParser.Cond_diffContext(self, localctx)
                 self.enterOuterAlt(localctx, 6)
-                self.state = 129
+                self.state = 140
                 self.var_num()
-                self.state = 130
+                self.state = 141
                 self.match(DrapcodeParser.DIFFERENT)
-                self.state = 131
+                self.state = 142
                 self.var_num()
                 pass
 
 
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class FunctionContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def FUNC(self):
+            return self.getToken(DrapcodeParser.FUNC, 0)
+
+        def func_header(self):
+            return self.getTypedRuleContext(DrapcodeParser.Func_headerContext,0)
+
+
+        def blockfunc(self):
+            return self.getTypedRuleContext(DrapcodeParser.BlockfuncContext,0)
+
+
+        def FUNC_END(self):
+            return self.getToken(DrapcodeParser.FUNC_END, 0)
+
+        def getRuleIndex(self):
+            return DrapcodeParser.RULE_function
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunction" ):
+                listener.enterFunction(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunction" ):
+                listener.exitFunction(self)
+
+
+
+
+    def function(self):
+
+        localctx = DrapcodeParser.FunctionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 32, self.RULE_function)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 146
+            self.match(DrapcodeParser.FUNC)
+            self.state = 147
+            self.func_header()
+            self.state = 148
+            self.blockfunc()
+            self.state = 149
+            self.match(DrapcodeParser.FUNC_END)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+    class Func_headerContext(ParserRuleContext):
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return DrapcodeParser.RULE_func_header
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class F_headContext(Func_headerContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a DrapcodeParser.Func_headerContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(DrapcodeParser.ID, 0)
+        def COLON(self):
+            return self.getToken(DrapcodeParser.COLON, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterF_head" ):
+                listener.enterF_head(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitF_head" ):
+                listener.exitF_head(self)
+
+
+
+    def func_header(self):
+
+        localctx = DrapcodeParser.Func_headerContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 34, self.RULE_func_header)
+        try:
+            localctx = DrapcodeParser.F_headContext(self, localctx)
+            self.enterOuterAlt(localctx, 1)
+            self.state = 151
+            self.match(DrapcodeParser.ID)
+            self.state = 152
+            self.match(DrapcodeParser.COLON)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

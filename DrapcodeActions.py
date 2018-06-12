@@ -5,6 +5,8 @@ from gen.DrapcodeParser import DrapcodeParser
 
 
 class DrapcodeActions(DrapcodeListener):
+    functions = []
+    last_function_name = ""
     calc_stack = []
     declared_vars = []
     llvm_gen = LLVMGenerator()
@@ -85,6 +87,15 @@ class DrapcodeActions(DrapcodeListener):
         val_2 = self.__get_var_num_value(var_2)
 
         self.llvm_gen.icmp(val_1, val_2)
+
+    def exitF_head(self, ctx:DrapcodeParser.F_headContext):
+        func_name = ctx.ID().getText()
+        self.functions.append(func_name)
+        self.last_function_name = func_name
+        self.llvm_gen.func_start(func_name)
+
+    def exitBlockfunc(self, ctx:DrapcodeParser.BlockfuncContext):
+        self.llvm_gen.func_end()
 
     def __search_in_scopes(self, var_name):
         """

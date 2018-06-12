@@ -62,6 +62,15 @@ class DrapcodeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by DrapcodeParser#funccall.
+    def enterFunccall(self, ctx:DrapcodeParser.FunccallContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#funccall.
+    def exitFunccall(self, ctx:DrapcodeParser.FunccallContext):
+        pass
+
+
     # Enter a parse tree produced by DrapcodeParser#while_cond.
     def enterWhile_cond(self, ctx:DrapcodeParser.While_condContext):
         pass
@@ -95,6 +104,15 @@ class DrapcodeListener(ParseTreeListener):
 
     # Exit a parse tree produced by DrapcodeParser#blockif.
     def exitBlockif(self, ctx:DrapcodeParser.BlockifContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#blockfunc.
+    def enterBlockfunc(self, ctx:DrapcodeParser.BlockfuncContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#blockfunc.
+    def exitBlockfunc(self, ctx:DrapcodeParser.BlockfuncContext):
         pass
 
 
@@ -284,6 +302,24 @@ class DrapcodeListener(ParseTreeListener):
 
     # Exit a parse tree produced by DrapcodeParser#cond_diff.
     def exitCond_diff(self, ctx:DrapcodeParser.Cond_diffContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#function.
+    def enterFunction(self, ctx:DrapcodeParser.FunctionContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#function.
+    def exitFunction(self, ctx:DrapcodeParser.FunctionContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#f_head.
+    def enterF_head(self, ctx:DrapcodeParser.F_headContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#f_head.
+    def exitF_head(self, ctx:DrapcodeParser.F_headContext):
         pass
 
 

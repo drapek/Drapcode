@@ -18,7 +18,7 @@ This is compiler implementation of own language called Drapcode. To get used to 
 - [x] if statements
 - [x] scopes
 - [x] while loop
-- [ ] functions (in progress - 20%)
+- [x] functions
 
 # How to use
 ```bash
@@ -377,4 +377,46 @@ Output:
 
 ```output
 99
+```
+
+### Functions
+
+```drapcode
+func tmp:
+b = 2
+shout b
+endfunc
+x = 1
+shout x
+tmp()
+
+```
+
+will transform to:
+
+```llvm
+declare i32 @printf(i8*, ...)
+declare i32 @__isoc99_scanf(i8*, ...)
+@str.1 = constant [4 x i8] c"%d\0A\00"
+define i32 @tmp() nounwind {
+%b = alloca i32
+store i32 2, i32* %b
+%1 = load i32, i32* %b
+%2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.1, i32 0, i32 0), i32 %1)
+ret i32 %2
+}
+@str.2 = constant [4 x i8] c"%d\0A\00"
+define i32 @main() nounwind{
+%x = alloca i32
+store i32 1, i32* %x
+%1 = load i32, i32* %x
+%2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.2, i32 0, i32 0), i32 %1)
+ret i32 0 }
+```
+
+otuput:
+
+```output
+1
+2
 ```
