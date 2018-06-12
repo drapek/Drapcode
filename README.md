@@ -31,7 +31,74 @@ clang-6.0 -o <output_filename> out.ll
 * packages from requirements.txt (pip install -r requirements.txt)
 * llvm >= 6.0
 
-## Example usage
+
+## TLDR Usage Guide
+
+### comments
+```python
+# this is comment
+x = 1 # this is as well a comment
+```
+
+### simple assigment
+```python
+x = 2
+y = 2 + 4
+
+```
+
+### Print value
+```python
+x = 1
+shout x
+```
+
+### Get value from user
+```python
+gimme x
+```
+
+### mathoperations
+available operands:
+* "+"
+* "-" 
+* "/" 
+* "*"
+
+example:
+```python
+x = (2 + 2) * 2
+```
+
+### If statement
+```python
+if x == 4:
+    x = -1
+    shout x
+endif
+```
+
+### While statment
+```python
+var = 2
+while var > 3:
+    shout var
+    var = var - 1
+endwhile
+```
+
+### Functions
+```python
+func tmp:
+    b = 2
+    shout b
+endfunc
+
+# execute the function
+tmp()
+```
+
+## Examples
 ### Integer IO operations:
 ```drapcode
 x = 2
