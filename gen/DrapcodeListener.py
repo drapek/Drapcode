@@ -17,6 +17,15 @@ class DrapcodeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by DrapcodeParser#if.
+    def enterIf(self, ctx:DrapcodeParser.IfContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#if.
+    def exitIf(self, ctx:DrapcodeParser.IfContext):
+        pass
+
+
     # Enter a parse tree produced by DrapcodeParser#assign.
     def enterAssign(self, ctx:DrapcodeParser.AssignContext):
         pass
@@ -41,6 +50,33 @@ class DrapcodeListener(ParseTreeListener):
 
     # Exit a parse tree produced by DrapcodeParser#read.
     def exitRead(self, ctx:DrapcodeParser.ReadContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#if_cond.
+    def enterIf_cond(self, ctx:DrapcodeParser.If_condContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#if_cond.
+    def exitIf_cond(self, ctx:DrapcodeParser.If_condContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#blockif.
+    def enterBlockif(self, ctx:DrapcodeParser.BlockifContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#blockif.
+    def exitBlockif(self, ctx:DrapcodeParser.BlockifContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#block.
+    def enterBlock(self, ctx:DrapcodeParser.BlockContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#block.
+    def exitBlock(self, ctx:DrapcodeParser.BlockContext):
         pass
 
 
@@ -158,6 +194,69 @@ class DrapcodeListener(ParseTreeListener):
 
     # Exit a parse tree produced by DrapcodeParser#par.
     def exitPar(self, ctx:DrapcodeParser.ParContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#var_num.
+    def enterVar_num(self, ctx:DrapcodeParser.Var_numContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#var_num.
+    def exitVar_num(self, ctx:DrapcodeParser.Var_numContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_eq.
+    def enterCond_eq(self, ctx:DrapcodeParser.Cond_eqContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_eq.
+    def exitCond_eq(self, ctx:DrapcodeParser.Cond_eqContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_gt.
+    def enterCond_gt(self, ctx:DrapcodeParser.Cond_gtContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_gt.
+    def exitCond_gt(self, ctx:DrapcodeParser.Cond_gtContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_gte.
+    def enterCond_gte(self, ctx:DrapcodeParser.Cond_gteContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_gte.
+    def exitCond_gte(self, ctx:DrapcodeParser.Cond_gteContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_lt.
+    def enterCond_lt(self, ctx:DrapcodeParser.Cond_ltContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_lt.
+    def exitCond_lt(self, ctx:DrapcodeParser.Cond_ltContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_lte.
+    def enterCond_lte(self, ctx:DrapcodeParser.Cond_lteContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_lte.
+    def exitCond_lte(self, ctx:DrapcodeParser.Cond_lteContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#cond_diff.
+    def enterCond_diff(self, ctx:DrapcodeParser.Cond_diffContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#cond_diff.
+    def exitCond_diff(self, ctx:DrapcodeParser.Cond_diffContext):
         pass
 
 

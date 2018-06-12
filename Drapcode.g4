@@ -38,43 +38,45 @@ MINUS : '-';
 
 // Global
 EQ : '=';
-//COLON: ':';
+COLON: ':';
 //COMMA: ',';
 //WHILE: 'while';
 //WHILE_END: 'endwhile';
-//IF: 'if';
-//IF_END: 'endif';
-PRINT:	'shout' ; // prints the info to stdout
+IF: 'if';
+IF_END: 'endif';
+PRINT: 'shout'; // prints the info to stdout
 READ: 'gimme';  // takes the output from the user
 //FUNC: 'func';
 //FUNC_END: 'endfunc';
 
 //// Conditions
-//EQUALS: '==';
-//GREAT_THAN: '>';
-//GREAT_EQ_THAN: '>=';
-//LESS_THAN: '<';
-//LESS_EQ_THAN: '<=';
-//DIFFERENT: '!=';
+EQUALS: '==';
+GREAT_THAN: '>';
+GREAT_EQ_THAN: '>=';
+LESS_THAN: '<';
+LESS_EQ_THAN: '<=';
+DIFFERENT: '!=';
 
 ID:   ('a'..'z'|'A'..'Z' | '_')+;
 STRING :  '"' ( ~('\\'|'"') )* '"';
 
-NEWLINE: '\r'? '\n';
+NEWLINE: ('\r\n' | '\n' | '\r');
 WS : [ \t\r\n]+ -> skip; // skip spaces, tabs, newlines
 COMMENT : '#' ~[\r\n\f]* -> skip; // truncate the comments
 
 //prog: ((stmt | function)? NEWLINE )*;
-prog: ( stmt? NEWLINE )* ;
+prog: block;
 
-stmt: /*while_cond #while
-     | if_cond #if */
-     ID EQ var_def #assign
+stmt: /*while_cond #while */
+       if_cond #if
+     | ID EQ var_def #assign
      | PRINT ID #print
      | READ ID #read;
     /* | ID #func_call; */
 
-//block: ( stmt? NEWLINE )*;
+if_cond: IF condition COLON blockif IF_END;
+blockif: block;
+block: (stmt? NEWLINE )*;
 
 var_def: expr0 /*| NUMBER | STRING | array*/;
 
@@ -103,17 +105,24 @@ expr4:
 
 
 
-//VAR_NUMERIC: ID | NUMBER;
-
 //MATH_OPERATHION: VAR_NUMERIC (MATH_OPERAND VAR_NUMERIC)*;
 //
 //array: OPEN_BRACK (VAR_NUMERIC COMMA)+ CLOSE_BRACK; // eg. [1.2, 2.0, 2, 5]
 //ARRAY_APPEAL: ID OPEN_BRACK INTEGER CLOSE_BRACK;  // eg. arr[1]
 //
-//condition: VAR_NUMERIC EQUALS | GREAT_THAN | GREAT_EQ_THAN | LESS_THAN | LESS_EQ_THAN | DIFFERENT VAR_NUMERIC;  // eg. 2.0 != var_a
+var_num: ID | INTEGER ;
+
+condition:   var_num EQUALS var_num #cond_eq
+           | var_num GREAT_THAN var_num #cond_gt
+           | var_num GREAT_EQ_THAN var_num #cond_gte
+           | var_num LESS_THAN var_num #cond_lt
+           | var_num LESS_EQ_THAN var_num #cond_lte
+           | var_num DIFFERENT var_num #cond_diff // eg. 2.0 != var_a
+           ;
+
 //
 //while_cond: WHILE condition COLON block WHILE_END;
-//if_cond: IF condition COLON block IF_END;
+
 //
 //function: FUNC ID params COLON block FUNC_END;
 //params: (var (COMMA var)*)?;

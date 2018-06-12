@@ -28,12 +28,17 @@ class DrapcodeActions(DrapcodeListener):
     def exitRead(self, ctx: DrapcodeParser.ReadContext):
         var = self.__get_or_declare_variable_if_not_exists(ctx.ID().getText())
         self.llvm_gen.scanf(ctx.ID().getText(), var.get_type())
+        var.value = f"%{ctx.ID().getText()}"  # Save the register addr instead last value
 
     def exitInt(self, ctx:DrapcodeParser.IntContext):
         self.calc_stack.append(Variable(ctx.INTEGER().getText(), var_type="int"))
 
     def exitFloat(self, ctx:DrapcodeParser.FloatContext):
         self.calc_stack.append(Variable(ctx.FLOAT_NUMBER().getText(), var_type="double"))
+
+    def exitExpr_id(self, ctx:DrapcodeParser.Expr_idContext):
+        var = self.global_variables[ctx.ID().getText()]
+        self.calc_stack.append(var)
 
     def exitAdd(self, ctx:DrapcodeParser.AddContext):
         self.__apply_arithmetic_operation(self.llvm_gen.add_int, self.llvm_gen.add_double)
@@ -46,6 +51,31 @@ class DrapcodeActions(DrapcodeListener):
 
     def exitDiv(self, ctx:DrapcodeParser.DivContext):
         self.__apply_arithmetic_operation(self.llvm_gen.div_int, self.llvm_gen.div_double)
+
+    def exitIf(self, ctx:DrapcodeParser.IfContext):
+        pass
+
+    def enterBlockif(self, ctx:DrapcodeParser.BlockContext):
+        self.llvm_gen.if_start()
+
+    def exitBlockif(self, ctx:DrapcodeParser.BlockContext):
+        self.llvm_gen.if_end()
+
+    def exitCond_eq(self, ctx:DrapcodeParser.Cond_eqContext):
+        var_1 = ctx.var_num()[0]
+        var_2 = ctx.var_num()[1]
+
+        val_1 = self.__get_var_num_value(var_1)
+        val_2 = self.__get_var_num_value(var_2)
+
+        self.llvm_gen.icmp(val_1, val_2)
+
+    def __get_var_num_value(self, origin_ctx):
+        if origin_ctx.ID() is not None:
+            var_name = origin_ctx.ID().getText()
+            return self.global_variables[var_name].get_value()
+        else:
+            return origin_ctx.INTEGER().getText()
 
     def __get_or_declare_variable_if_not_exists(self, variable_name, variable_value=None, variable_type=None):
         if variable_name not in self.global_variables.keys():

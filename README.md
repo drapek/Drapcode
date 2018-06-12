@@ -7,6 +7,7 @@ This is compiler implementation of own language called Drapcode. To get used to 
 # Constrains
 * there can't be blank lines between statements
 * in math operation of int and double, the int is automatically converted into double 
+* conditions are ints only to make the problem simpler
 
 # Features
 - [x] IO operations
@@ -212,5 +213,30 @@ store double %7, double* %a
 store double %11, double* %b
 %12 = load double, double* %b
 %13 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.4, i32 0, i32 0), double %12)
+ret i32 0 }
+```
+
+## Arithmetic of variable and int value
+```drapcode
+x = 6
+y = x + 4
+shout y
+
+```
+
+will transform to:
+
+```llvm
+declare i32 @printf(i8*, ...)
+declare i32 @__isoc99_scanf(i8*, ...)
+@str.1 = constant [4 x i8] c"%d\0A\00"
+define i32 @main() nounwind{
+%x = alloca i32
+store i32 6, i32* %x
+%1 = add i32 6, 4
+%y = alloca i32
+store i32 %1, i32* %y
+%2 = load i32, i32* %y
+%3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.1, i32 0, i32 0), i32 %2)
 ret i32 0 }
 ```
