@@ -1,5 +1,6 @@
 # Drapcode
-Own compiler of Drapcode language. 
+Own compiler of Drapcode language. This project is developed by ANTLR as frontend (parser and lexer) and LLVM as backend. 
+This project is only for educational purposes and will be not developed to stable version. 
 
 ## Description
 This is compiler implementation of own language called Drapcode. To get used to it I recommend to look into _examples_ folder
@@ -8,17 +9,16 @@ This is compiler implementation of own language called Drapcode. To get used to 
 * there can't be blank lines between statements
 * in math operation of int and double, the int is automatically converted into double 
 * conditions are ints only to make the problem simpler
+* scope cohesion is guarantee only for 1-nested scope (rest will be developed in the future)
 
 # Features
 - [x] IO operations
 - [x] int and real numbers
-- [ ] strings
 - [x] math operations
 - [x] if statements
-- [ ] while loop
-- [ ] functions with
 - [x] scopes
-- [ ] arrays
+- [x] while loop
+- [ ] functions (in progress - 20%)
 
 # How to use
 ```bash
@@ -329,4 +329,52 @@ Output when inputed *1*:
 Output when inputed *5*:
 ```output
  10
+```
+
+### While loop
+This loop will iterate only once
+```drapcode
+a = 99
+x = 1
+while x == 1:
+y = x - 1
+x = y
+shout a
+endwhile
+
+```
+
+will transform to:
+
+```llvm
+declare i32 @printf(i8*, ...)
+declare i32 @__isoc99_scanf(i8*, ...)
+@str.1 = constant [4 x i8] c"%d\0A\00"
+define i32 @main() nounwind{
+%a = alloca i32
+store i32 99, i32* %a
+%x = alloca i32
+store i32 1, i32* %x
+%1 = icmp eq i32 1, 1
+br label %while1
+while1:
+br i1 %1, label %true1, label %false1
+true1:
+%2 = sub i32 1, 1
+%y = alloca i32
+store i32 %2, i32* %y
+store i32 0, i32* %x
+store i32 %2, i32* %x
+%3 = load i32, i32* %a
+%4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.1, i32 0, i32 0), i32 %3)
+br label %while1
+false1:
+store i32 1, i32* %x
+ret i32 0 }
+```
+
+Output:
+
+```output
+99
 ```

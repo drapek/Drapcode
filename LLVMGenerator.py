@@ -112,6 +112,20 @@ class LLVMGenerator:
         self.main_text += f"br label %false{block_nmb}\n"
         self.main_text += f"false{block_nmb}:\n"
 
+    def while_start(self):
+        self.main_text += f"br label %while{self.block_iter}\n"
+        self.main_text += f"while{self.block_iter}:\n"
+
+        self.main_text += f"br i1 %{self.reg_iter - 1}, label %true{self.block_iter}, label %false{self.block_iter}\n"
+        self.main_text += f"true{self.block_iter}:\n"
+        self.block_stack.append(self.block_iter)
+        self.block_iter += 1
+
+    def while_end(self):
+        block_nmb = self.block_stack.pop()
+        self.main_text += f"br label %while{block_nmb}\n"
+        self.main_text += f"false{block_nmb}:\n"
+
     def icmp(self, val1, val2):
         """ val1 and val2 should be value eg. 4.0 or register number eg. %3"""
         self.main_text += f"%{self.reg_iter} = icmp eq i32 {val1}, {val2}\n"

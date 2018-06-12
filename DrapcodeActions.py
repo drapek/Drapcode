@@ -22,7 +22,7 @@ class DrapcodeActions(DrapcodeListener):
     def exitPrint(self, ctx: DrapcodeParser.PrintContext):
         if hasattr(ctx, 'ID'):
             var_name = ctx.ID().getText()
-            found_var = self.variables[self.actual_scope][var_name]
+            found_var = self.__search_in_scopes(var_name)
             self.llvm_gen.print(var_name, found_var.get_type())
 
     def exitAssign(self, ctx: DrapcodeParser.AssignContext):
@@ -43,7 +43,7 @@ class DrapcodeActions(DrapcodeListener):
         self.calc_stack.append(Variable(ctx.FLOAT_NUMBER().getText(), var_type="double"))
 
     def exitExpr_id(self, ctx:DrapcodeParser.Expr_idContext):
-        var = self.variables[self.actual_scope][ctx.ID().getText()]
+        var = self.__search_in_scopes(ctx.ID().getText())
         self.calc_stack.append(var)
 
     def exitAdd(self, ctx:DrapcodeParser.AddContext):
@@ -69,6 +69,14 @@ class DrapcodeActions(DrapcodeListener):
         self.llvm_gen.if_end()
         self.__close_scope()
 
+    def enterBlockwhile(self, ctx:DrapcodeParser.BlockwhileContext):
+        self.llvm_gen.while_start()
+        self.__open_scope()
+
+    def exitBlockwhile(self, ctx:DrapcodeParser.BlockwhileContext):
+        self.llvm_gen.while_end()
+        self.__close_scope()
+
     def exitCond_eq(self, ctx:DrapcodeParser.Cond_eqContext):
         var_1 = ctx.var_num()[0]
         var_2 = ctx.var_num()[1]
@@ -77,6 +85,20 @@ class DrapcodeActions(DrapcodeListener):
         val_2 = self.__get_var_num_value(var_2)
 
         self.llvm_gen.icmp(val_1, val_2)
+
+    def __search_in_scopes(self, var_name):
+        """
+        This function will return found Variable class of the name <var_name> with the nearest scope.
+        :param var_name:
+        :return:
+        """
+        for i in range(self.actual_scope, -1, -1):
+            try:
+                return self.variables[i][var_name]
+            except KeyError:
+                pass
+
+        return None
 
     def __open_scope(self):
         self.actual_scope += 1
@@ -87,7 +109,7 @@ class DrapcodeActions(DrapcodeListener):
 
     def __close_scope(self):
         # when scope is closed we need to restore previous variable values in llvm
-        # TODO compare with all scopes from this to 0. Not only with 0.
+        # TODO compare with all scopes from actual to 0. Not only with 0.
         vars_that_changed = self.variables[0].keys() & self.variables[self.actual_scope].keys()
         for var_name in vars_that_changed:
             old_var = self.variables[0][var_name]

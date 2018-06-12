@@ -17,6 +17,15 @@ class DrapcodeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by DrapcodeParser#while.
+    def enterWhile(self, ctx:DrapcodeParser.WhileContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#while.
+    def exitWhile(self, ctx:DrapcodeParser.WhileContext):
+        pass
+
+
     # Enter a parse tree produced by DrapcodeParser#if.
     def enterIf(self, ctx:DrapcodeParser.IfContext):
         pass
@@ -53,12 +62,30 @@ class DrapcodeListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by DrapcodeParser#while_cond.
+    def enterWhile_cond(self, ctx:DrapcodeParser.While_condContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#while_cond.
+    def exitWhile_cond(self, ctx:DrapcodeParser.While_condContext):
+        pass
+
+
     # Enter a parse tree produced by DrapcodeParser#if_cond.
     def enterIf_cond(self, ctx:DrapcodeParser.If_condContext):
         pass
 
     # Exit a parse tree produced by DrapcodeParser#if_cond.
     def exitIf_cond(self, ctx:DrapcodeParser.If_condContext):
+        pass
+
+
+    # Enter a parse tree produced by DrapcodeParser#blockwhile.
+    def enterBlockwhile(self, ctx:DrapcodeParser.BlockwhileContext):
+        pass
+
+    # Exit a parse tree produced by DrapcodeParser#blockwhile.
+    def exitBlockwhile(self, ctx:DrapcodeParser.BlockwhileContext):
         pass
 
 
