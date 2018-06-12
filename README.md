@@ -247,8 +247,8 @@ Simple example. See that there are present scopes.
 ```drapcode
 x = 5
 if x == 5:
-x = 10
-shout x
+    x = 10
+    shout x
 endif
 shout x
 
@@ -291,8 +291,8 @@ Output:
 x = 1
 gimmme x
 if x == 5:
-x = 10
-shout x
+    x = 10
+    shout x
 endif
 
 ```
@@ -337,9 +337,9 @@ This loop will iterate only once
 a = 99
 x = 1
 while x == 1:
-y = x - 1
-x = y
-shout a
+    y = x - 1
+    x = y
+    shout a
 endwhile
 
 ```
@@ -383,9 +383,10 @@ Output:
 
 ```drapcode
 func tmp:
-b = 2
-shout b
+    b = 2
+    shout b
 endfunc
+
 x = 1
 shout x
 tmp()
