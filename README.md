@@ -14,9 +14,10 @@ This is compiler implementation of own language called Drapcode. To get used to 
 - [x] int and real numbers
 - [ ] strings
 - [x] math operations
-- [ ] if statements
+- [x] if statements
 - [ ] while loop
-- [ ] functions with scope variable
+- [ ] functions with
+- [x] scopes
 - [ ] arrays
 
 # How to use
@@ -239,4 +240,93 @@ store i32 %1, i32* %y
 %2 = load i32, i32* %y
 %3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.1, i32 0, i32 0), i32 %2)
 ret i32 0 }
+```
+
+### If statement
+Simple example. See that there are present scopes.
+```drapcode
+x = 5
+if x == 5:
+x = 10
+shout x
+endif
+shout x
+
+```
+
+will transform to:
+
+```llvm
+declare i32 @printf(i8*, ...)
+declare i32 @__isoc99_scanf(i8*, ...)
+@str.1 = constant [4 x i8] c"%d\0A\00"
+@str.2 = constant [4 x i8] c"%d\0A\00"
+define i32 @main() nounwind{
+%x = alloca i32
+store i32 5, i32* %x
+%1 = icmp eq i32 5, 5
+br i1 %1, label %true1, label %false1
+true1:
+store i32 0, i32* %x
+store i32 10, i32* %x
+%2 = load i32, i32* %x
+%3 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.1, i32 0, i32 0), i32 %2)
+br label %false1
+false1:
+store i32 5, i32* %x
+%4 = load i32, i32* %x
+%5 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.2, i32 0, i32 0), i32 %4)
+ret i32 0 }
+
+```
+
+Output:
+```output
+10
+5
+```
+
+### If statement with user interaction
+```drapcode
+x = 1
+gimmme x
+if x == 5:
+x = 10
+shout x
+endif
+
+```
+
+
+will transform to:
+
+```llvm
+declare i32 @printf(i8*, ...)
+declare i32 @__isoc99_scanf(i8*, ...)
+@str.1 = constant [3 x i8] c"%d\00"
+@str.2 = constant [4 x i8] c"%d\0A\00"
+define i32 @main() nounwind{
+%x = alloca i32
+store i32 1, i32* %x
+%1 = call i32 (i8*, ...) @__isoc99_scanf(i8* getelementptr inbounds ([3 x i8], [3 x i8]* @str.1, i32 0, i32 0), i32* %x)
+%2 = icmp eq i32 %x, 5
+br i1 %2, label %true1, label %false1
+true1:
+store i32 10, i32* %x
+%3 = load i32, i32* %x
+%4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([4 x i8], [4 x i8]* @str.2, i32 0, i32 0), i32 %3)
+br label %false1
+false1:
+ret i32 0 }
+
+```
+
+Output when inputed *1*:
+```output
+ <no output>
+```
+
+Output when inputed *5*:
+```output
+ 10
 ```
